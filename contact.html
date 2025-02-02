@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form - Orange Theme</title>
+    <style>
+        /* General Page Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background: url('background3.jpg') no-repeat center center/cover;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Modal Background */
+        .modal {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Contact Form Box */
+        .modal-content {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            width: 400px;
+            position: relative;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        /* Close Button */
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #555;
+        }
+
+        .close:hover {
+            color: black;
+        }
+
+        /* Profile Image */
+        .contact-img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            border: 3px solid #ff7f00;
+        }
+
+        /* Form Styling */
+        form input, form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        /* Submit Button */
+        form button {
+            background: #ff7f00;
+            color: white;
+            border: none;
+            padding: 12px;
+            width: 100%;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        form button:hover {
+            background: #e66a00;
+        }
+
+        /* Right Side Contact Info */
+        .contact-info {
+            position: absolute;
+            right: -180px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            font-size: 18px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contact-info p {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .emoji {
+            font-size: 22px;
+            color: #ff7f00;
+        }
+
+        /* Go Back Button */
+        .go-back {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 12px 24px;
+            font-size: 16px;
+            color: white;
+            background: #ff4500;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: bold;
+            animation: blink 1s infinite alternate;
+        }
+
+        .go-back:hover {
+            background: #e63b00;
+        }
+
+        /* Blinking Effect */
+        @keyframes blink {
+            0% { opacity: 1; }
+            100% { opacity: 0.5; }
+        }
+
+        /* Success Message Styling */
+        .success-message {
+            color: green;
+            font-weight: bold;
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid green;
+            border-radius: 5px;
+            background: #d4edda;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 style="color:#ff7f00;">Contact Me</h2>
+            <img src="profile.jpg" alt="Profile Picture" class="contact-img">
+            <form id="contactForm">
+                <input type="text" placeholder="First Name" required>
+                <input type="text" placeholder="Last Name" required>
+                <input type="email" placeholder="Email Address" required>
+                <textarea placeholder="Message" rows="4" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+
+            <!-- Success Message -->
+            <div id="successMessage" class="success-message">Message has been sent!</div>
+
+            <!-- Contact Info Outside Box (Right Side) -->
+            <div class="contact-info">
+                <p><span class="emoji">📞</span> +91 7867923412</p>
+                <p><span class="emoji">✉️</span> ser123@gmail.com</p>
+            </div>
+
+            <!-- Go Back Button with Blinking Effect -->
+            <a href="index.html" class="go-back"> Go Back</a>
+        </div>
+    </div>
+
+    <script>
+        // Open Modal
+        function openModal() {
+            document.getElementById("contactModal").style.display = "flex";
+        }
+
+        // Close Modal
+        function closeModal() {
+            document.getElementById("contactModal").style.display = "none";
+        }
+
+        // Form Submission with Success Alert
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent actual form submission
+
+            // Show success message
+            let successMsg = document.getElementById("successMessage");
+            successMsg.style.display = "block";
+
+            // Remove message after 3 seconds
+            setTimeout(() => {
+                successMsg.style.display = "none";
+            }, 3000);
+
+            // Reset the form
+            this.reset();
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('background.avif') no-repeat center center/cover;
+            height: 100vh;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background: black;
+            color: white;
+            position: relative;
+        }
+        .nav-logo {
+            font-size: 30px;
+            font-weight: bold;
+            position: absolute;
+            left: 20px;
+        }
+        .nav-logo span:nth-child(odd) {
+            color: orange;
+        }
+        .nav-logo span:nth-child(even) {
+            color: white;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 80px;
+            padding: 0;
+            margin: 0;
+        }
+        nav ul li {
+            display: inline;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 22px;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            animation: blinkText 0.5s infinite alternate;
+        }
+        @keyframes blinkText {
+            0% { color: white; }
+            100% { color: orange; }
+        }
+        .contact-button {
+            position: absolute;
+            right: 20px;
+            background: orange;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 20px;
+            animation: blinkButton 1s infinite alternate;
+        }
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            text-align: left;
+            padding: 50px;
+            width: 100vw;
+            height: calc(100vh - 70px);
+        }
+        .hero-content {
+            max-width: 600px;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .hero-content h2 {
+            font-size: 50px;
+            font-weight: bold;
+            opacity: 0;
+            transform: translateX(-100%);
+            animation: slideIn 1s forwards ease-out;
+        }
+        @keyframes slideIn {
+            0% { opacity: 0; transform: translateX(-100%); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+        .highlight {
+            color: orange;
+        }
+        .action-button {
+            background: orange;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 20px;
+            animation: blinkButton 1s infinite alternate;
+        }
+        .secondary {
+            background: gray;
+        }
+        .hero-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 50px;
+            width: 100%;
+        }
+        .hero-image img {
+    width: 200px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid yellow;
+    box-shadow: 0 0 15px yellow;
+    animation: blinkShine 1.5s infinite alternate;
+}
+
+/* Animation for blinking yellow shine */
+@keyframes blinkShine {
+    0% {
+        box-shadow: 0 0 15px rgb(255, 147, 6);
+        border-color: rgb(255, 119, 0);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(247, 111, 7, 0.7);
+        border-color: rgba(238, 140, 42, 0.7);
+    }
+    100% {
+        box-shadow: 0 0 15px rgb(255, 85, 0);
+        border-color: rgb(216, 116, 27);
+    }
+}
+
+        /* Custom Green Alert Box */
+        .custom-alert {
+            display: none;
+            position: fixed;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #28a745;
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 18px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            min-width: 300px;
+            z-index: 1000;
+        }
+        .custom-alert button {
+            margin-top: 10px;
+            background: white;
+            color: #28a745;
+            border: none;
+            padding: 8px 15px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-logo">
+                <span>S</span><span>I</span><span>M</span><span>I</span>
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="Projects.html">Projects</a></li>
+                <li><a href="skill.html">Skills</a></li>
+            </ul>
+            <button class="contact-button" onclick="redirectToContact()">Contact Me</button>
+            <script>
+                // Function to redirect to contact.html
+                function redirectToContact() {
+                    window.location.href = "contact.html"; // Redirects to contact.html
+                }
+            </script>
+
+    </header>
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h2>Hi, I'm <span class="highlight">Simi</span></h2>
+                <h2>Fullstack Developer</h2>
+                <p>A passionate Fullstack developer to create, impact and serve the society by creating responsive and dynamic websites.</p>
+                <button class="action-button" onclick="showCustomAlert('Go to Contact Me for hiring details!')"><b>Hire Me</b></button>
+                <button class="action-button secondary" onclick="showCustomAlert('Go to About Me to learn about my experience.')"><b>Experience</b></button>
+            </div>
+            <div class="hero-image">
+                <img src="profile.jpg" alt="Simi's Image">
+            </div>
+        </div>
+    </section>
+
+    <!-- Custom Alert Box -->
+    <div id="customAlert" class="custom-alert">
+        <p id="alertMessage"></p>
+        <button onclick="closeCustomAlert()">OK</button>
+    </div>
+
+    <script>
+        function showCustomAlert(message, redirect = null) {
+            document.getElementById("alertMessage").innerText = message;
+            document.getElementById("customAlert").style.display = "block";
+
+            // If redirect is provided, navigate to the page after 2 seconds
+            if (redirect) {
+                setTimeout(() => {
+                    window.location.href = redirect;
+                }, 2000);
+            }
+        }
+
+        function closeCustomAlert() {
+            document.getElementById("customAlert").style.display = "none";
+        }
+    </script>
+</body>
+</html>

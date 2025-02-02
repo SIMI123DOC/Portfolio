@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Work</title>
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #121212; /* Dark Theme */
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full Screen */
+            width: 100vw; /* Full Width */
+            overflow: hidden; /* No Scroll */
+            text-align: center;
+        }
+
+        /* Main Container */
+        .container {
+            width: 90vw;
+            max-width: 800px;
+            background: #1e1e1e; /* Dark Gray Box */
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0px 0px 25px rgba(255, 140, 0, 0.9); /* Orange Glow */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 28px; /* Increased */
+            color: orange;
+            margin-bottom: 12px;
+            animation: slide-in-left 1s ease-out; /* Slide Animation */
+        }
+
+        p {
+            font-size: 18px; /* Slightly bigger */
+            color: #ccc;
+        }
+
+        /* Smart Inhaler Image */
+        .project img {
+            width: 100%;
+            max-width: 360px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            box-shadow: 0px 0px 15px rgba(255, 140, 0, 0.8);
+            animation: blink-orange 1.5s infinite alternate;
+        }
+
+        /* Feature List */
+        .features {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .features li {
+            font-size: 16px; /* Bigger */
+            padding: 10px 15px;
+            background: orange;
+            color: white;
+            border-radius: 8px;
+        }
+
+        /* Next Button */
+        .next-btn {
+            display: inline-block;
+            padding: 12px 24px; /* Bigger Button */
+            font-size: 18px; /* Larger Font */
+            font-weight: bold;
+            color: white;
+            background: orange;
+            border-radius: 10px;
+            text-decoration: none;
+            margin-top: 20px;
+            width: 200px; /* Fixed Width */
+            text-align: center;
+            animation: blink-orange 1.5s infinite alternate;
+        }
+
+        .next-btn:hover {
+            background: #cc7700;
+        }
+
+        /* Blinking Image Effect */
+        @keyframes blink-orange {
+            0% { box-shadow: 0px 0px 15px rgba(255, 140, 0, 0.6); }
+            100% { box-shadow: 0px 0px 25px rgba(255, 140, 0, 1); }
+        }
+
+        /* Slide-in Animation for h1 */
+        @keyframes slide-in-left {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                width: 95vw;
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+
+            .features li {
+                font-size: 14px;
+                padding: 8px 12px;
+            }
+
+            .next-btn {
+                font-size: 16px;
+                padding: 10px 20px;
+                width: 180px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>🚀A Next-gen Inhaler</h1>
+        <br>
+
+        <div class="project">
+            <img src="inhaler.webp" alt="Smart Inhaler">
+            <br>
+            <br>
+            <ul class="features">
+                <li>🎙️ Voice Assistant AI</li>
+                <li>⏰ Dosage Alerts</li>
+                <li>🔊 Medicine Level Sound Alert</li>
+                <li>🔋 Rechargeable Battery</li>
+                <li>📱 App Connectivity</li>
+            </ul>
+        </div>
+
+        <!-- Next Button -->
+        <a href="nextPage.html" class="next-btn">Next</a>
+    </div>
+
+</body>
+</html>

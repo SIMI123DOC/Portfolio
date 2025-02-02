@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Showcase</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #121212; /* Dark Theme */
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        /* Main Container */
+        .container {
+            width: 90%;
+            max-width: 800px;
+            background: #1e1e1e; /* Dark Gray Box */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px rgba(255, 140, 0, 0.8); /* Orange Glow */
+        }
+
+        h1 {
+            color: orange;
+            margin-bottom: 10px;
+            font-size: 1.8rem;
+        }
+
+        /* Table Layout */
+        .content-table {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 15px;
+        }
+
+        .project, .references {
+            flex: 1;
+            padding: 15px;
+            border-radius: 8px;
+            background: #2a2a2a;
+            box-shadow: 0px 0px 15px rgba(255, 140, 0, 0.8);
+        }
+
+        /* Project Image Box */
+        .project img {
+            width: 100%;
+            max-width: 250px;
+            height: auto;
+            border-radius: 8px;
+            animation: slide-in-left 1s ease-out, blink-orange 1.5s infinite alternate;
+        }
+
+        /* Slide-in Animation */
+        @keyframes slide-in-left {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* References Section */
+        .references p {
+            font-size: 0.9rem;
+            text-align: left;
+        }
+
+        .references a {
+            color: orange;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Re-Link Button */
+        .relink-btn {
+            display: inline-block;
+            padding: 12px 20px;
+            font-size: 1rem;
+            font-weight: bold;
+            color: white;
+            background: orange;
+            border-radius: 8px;
+            text-decoration: none;
+            margin-top: 15px;
+            animation: blink-orange 1.5s infinite alternate;
+        }
+
+        .relink-btn:hover {
+            background: #cc7700;
+        }
+
+        /* Blinking Effect */
+        @keyframes blink-orange {
+            0% { box-shadow: 0px 0px 15px rgba(255, 140, 0, 0.6); }
+            100% { box-shadow: 0px 0px 25px rgba(255, 140, 0, 1); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .content-table {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .project img {
+                max-width: 200px;
+            }
+
+            .references {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>🔍 App UI</h1>
+        <br>
+
+        <!-- Two Column Layout -->
+        <div class="content-table">
+            <!-- Left Side: Project Image -->
+            <div class="project">
+                <img src="app.jpg" alt="Smart Inhaler">
+            </div>
+
+            <!-- Right Side: References -->
+            <div class="references">
+                <p><strong>Reference:</strong></p>
+                <p>📄 "Integration of Wireless Communication Technologies in Smart Inhalers"</p>
+                <p>✍️ Authors: J. D. Lee, C. Y. Kim</p>
+                <p>📚 Journal: Sensors and Actuators B: Chemical</p>
+                <p>🔗 <a href="https://en.wikipedia.org/wiki/Inhaler" target="_blank">Read More</a></p>
+            </div>
+        </div>
+
+        <!-- Re-Link Button -->
+        <a href="index.html" class="relink-btn">🔗 Re-Link</a>
+    </div>
+
+</body>
+</html>
